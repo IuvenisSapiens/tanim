@@ -54,6 +54,10 @@
           "type": "array",
           "default": [
             {
+              "pattern": "#let\\s+FRAME_COUNT\\s*=\\s*(\\d+(?:\\.\\d+)?)",
+              "replacement": "#let FRAME_COUNT = ${value}"
+            },
+            {
               "pattern": "sys\\.inputs\\.at\\(\\s*[\"']t[\"']\\s*,\\s*default:\\s*(\\d+(?:\\.\\d+)?)\\s*\\)",
               "replacement": "sys.inputs.at(\"t\", default: ${value})"
             }
@@ -71,7 +75,10 @@
                 "description": "Replacement string (use ${value} as placeholder for the slider value)"
               }
             },
-            "required": ["pattern", "replacement"]
+            "required": [
+              "pattern",
+              "replacement"
+            ]
           }
         }
       }
